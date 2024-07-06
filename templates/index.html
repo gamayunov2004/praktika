@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Parser</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .result-container {
+        margin: 50px auto;
+        width: 80%;
+        max-width: 600px;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      }
+      .result-container p {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+      .result-container h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .workout-container {
+        margin-top: 30px;
+      }
+      .workout-container h3 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .workout-container ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .workout-container li {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+      button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #3e8e41;
+      }
+      sup {
+        color: red;
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mb-4">Парсер вакансий hh.ru</h1>
+        <form action="/search" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label>Специализация:<sup>*</sup></label>
+                <input type="text" class="form-control" name="spec" id="spec" required placeholder="обязательно для заполнения">
+            </div>
+            <div class="form-group">
+                <label>Город:</label>
+                <input type="text" class="form-control" name="area" id="area" placeholder="оставить пустым, если не имеет значения">
+            </div>
+            <div class="form-group">
+                <label>Уровень дохода от:</label>
+                <input type="text" class="form-control" name="salary" id="salary" placeholder="оставить пустым, если не имеет значения">
+            </div>
+            <div class="form-group">
+                <label>Образование:</label>
+                <select class="form-control" name="education">
+                    <option value="">выберите уровень образования</option>
+                    <option value="not_required_or_not_specified">Не требуется или не указано</option>
+                    <option value="higher">Высшее</option>
+                    <option value="special_secondary">Среднее профессиональное</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Тип занятости</label>
+                <select class="form-control" name="employment">
+                    <option value="">выберите тип занятости</option>
+                    <option value="full">Полная занятость</option>
+                    <option value="probation">Стажировка</option>
+                    <option value="part">Частичная занятость</option>
+                    <option value="project">Проектная работа</option>
+                    <option value="volunteer">Волонтерство</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>График работы</label>
+                <select class="form-control" name="schedule">
+                    <option value="">выберите график работы</option>
+                    <option value="fullDay">Полный день</option>
+                    <option value="remote">Удаленная работа</option>
+                    <option value="flexible">Гибкий график</option>
+                    <option value="shift">Сменный график</option>
+                    <option value="flyInFlyOut">Вахтовый метод</option>
+                </select>
+            </div>
+                <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+                  <button type="submit" class="btn btn-primary">Найти вакансии</button>
+                </div>
+        </form>
+    </div>
+</body>
+</html>
